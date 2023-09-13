@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.css-1fdsijx-ValueContainer {
+    padding: 0 !important; /* Padding'i sıfıra ayarlayın */
+  }
+.css-1pt7yfs-menu{
+    font-size: 0.5rem !important;
+}
+.css-1dimb5e-singleValue{
+    font-size: 0.75rem !important;
+}
+.css-1hb7zxy-IndicatorsContainer{
+    display: none !important;
+}
+.react-datepicker-wrapper{
+    width: 100% !important;
+}
