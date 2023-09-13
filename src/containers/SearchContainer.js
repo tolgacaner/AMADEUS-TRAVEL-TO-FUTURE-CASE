@@ -77,6 +77,7 @@ function SearchContainer() {
 
         const day = String(dateObject.getDate()).padStart(2, '0');
         const month = String(dateObject.getMonth() + 1).padStart(2, '0')
+        const year = dateObject.getFullYear();
 
         const formatedDate = `${day}/${month}/${year}`;
         dispatch(adddepartureDate(formatedDate))
