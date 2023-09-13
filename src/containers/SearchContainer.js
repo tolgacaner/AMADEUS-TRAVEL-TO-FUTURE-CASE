@@ -10,10 +10,11 @@ import AsyncSelect from 'react-select/async';
 
 function SearchContainer() {
     const [startDate, setStartDate] = useState(new Date());
+    const [startDate2, setStartDate2] = useState(new Date());
     const [filterToggle, setFilterToggle] = useState(false)
     const dispatch = useDispatch()
     const dotArr = [1, 2, 3]
-    const { data, oneway } = useSelector((state) => state.flights)
+    const { data, oneway ,departureFlight} = useSelector((state) => state.flights)
     console.log(startDate)
 
     const customStyles = {
@@ -94,8 +95,6 @@ function SearchContainer() {
                             loadOptions={loadOptions}
                             getOptionLabel={e => e.departure_airport_code + ' ' + e.departure_airport}
                             getOptionValue={e => e.departure_airport_code + ' ' + e.departure_airport}
-
-
                         />
                     </div>
                     <div className='w-1/2 h-full flex  flex-col items-start md:flex-row  md:items-center'>
@@ -113,11 +112,11 @@ function SearchContainer() {
                 <div className='flex-1 w-full  flex space-x-1'>
                     <div className='w-1/2 h-full flex  flex-col items-start md:flex-row  md:items-center'>
                         <h7 className='text-xs  md:text-base md:w-20 flex-none text-left h-1/2 font-medium'>Departure</h7>
-                        <DatePicker selected={startDate} onChange={(date) => formatDate(date)} className=' w-full text-xs p-1 h-1/2 border-2' />
+                        <DatePicker value={departureFlight&&departureFlight.departure_date} selected={startDate} onChange={(date) => {formatDate(date); setStartDate(date)}} className=' w-full text-xs p-1 h-1/2 border-2' />
                     </div>
                     <div className='w-1/2 h-full flex  flex-col items-start md:flex-row  md:items-center'>
                         <h7 className='text-xs  md:text-base md:w-20 flex-none text-left h-1/2 font-medium'>Return</h7>
-                        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className=' w-full text-xs p-1 h-1/2  border-2' disabled={oneway ? true : false} />
+                        <DatePicker selected={startDate2} onChange={(date2) => setStartDate2(date2)} className=' w-full text-xs p-1 h-1/2  border-2' disabled={oneway ? true : false} />
                     </div>
 
                 </div>
